@@ -1,0 +1,9 @@
+{
+  "name": "simply-me",
+  "scripts": {
+    "scss": "node-sass -r styles -o css"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

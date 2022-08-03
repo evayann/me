@@ -1,0 +1,17 @@
+@import "colors";
+
+@media (prefers-color-scheme: light) {
+  body{
+    @each $name, $color in $colors {
+      #{$name}: nth($color, 1);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @each $name, $color in $colors {
+      #{$name}: nth($color, 2);
+    }
+  }
+}

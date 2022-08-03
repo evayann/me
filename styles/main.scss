@@ -1,0 +1,146 @@
+@import "themes";
+@import "responsive";
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap');
+
+@mixin center-flex($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    font-size: medium;
+}
+
+html {
+    height: 100%;
+}
+
+:is(h1, h2, h3, h4, h5, h6, p, ul, li) {
+    color: var(--main-txt-color);
+}
+
+a {
+    color: var(--second-txt-color);
+
+    &:hover {
+        color: var(--highlight-color);
+    }
+}
+
+body {
+    margin: auto;
+    background-color: var(--main-color);
+
+    width: 60vw;
+    height: 100vh;
+
+    @include mobile {   
+        width: 100vw;
+    };
+
+    #mail {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+    }
+
+    .center {
+        @include center-flex(column);
+        text-align: center;
+
+        height: 100%;
+        @include small-mobile {
+            height: unset;
+        }
+        padding: 2rem;
+
+        main > .name {
+            font-family: "Permanent Marker", Helvetica, Arial, sans-serif;
+            font-size: xx-large;
+
+            position: relative;
+            top: -2rem;
+        }
+
+        .me {
+            max-width: 40%;
+            border-radius: 50%;
+            padding-bottom: 3em;
+        }
+        
+        .network {
+            @include center-flex();
+
+            margin-top: 1em;
+            justify-content: space-evenly;
+
+            a {
+                @include center-flex(column);
+                img {
+                   max-width: 32px;
+                }
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        section {
+            padding-top: 3.5em;
+
+            .reverse {
+                flex-direction: row-reverse;
+            }
+
+            .project {
+                display: flex;
+                justify-content: space-evenly;
+    
+                padding: 1em 0;
+    
+                &-img {
+                    max-width: 30%;
+                }
+    
+                &-content {
+                    @include center-flex(column);
+                    width: 100%;
+                    justify-content: space-evenly;
+
+                    h2 {
+                        @include small-mobile {
+                            margin-top: 1em;
+                        }
+                    }
+                }
+
+                .links {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .code {
+                        margin: 0 0.5em;
+                    }
+                }
+
+                @include small-mobile {
+                    flex-direction: column;
+                    align-items: center;
+                    &-img {
+                        max-width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}
+
